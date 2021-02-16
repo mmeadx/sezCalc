@@ -56,7 +56,7 @@ keys.addEventListener('click', e => {
             calculator.dataset.lastKey = 'clear';
         }
 
-        else if (action === 'calculate') {
+        else if (action === 'calculate') { // if = sign is pressed
 
             if (screenDisplay !== '0') {
                 const firstNum = calculator.dataset.firstNum;
@@ -68,7 +68,12 @@ keys.addEventListener('click', e => {
                 console.log(operator); // Display values in Console
 
                 results = display.textContent = calculate(firstNum, operator, secondNum);
-                history.textContent = (firstNum + " " + operator + " " + secondNum + " = " + results);
+                history.textContent = historicalData(firstNum, operator, secondNum, results);
+
+                var historyUpdate = history.textContent;
+                console.log(historyUpdate);
+                historyUpdate = document.getElementById('calcHist').value;
+                
 
                 calculator.dataset.lastKey = 'calculate';
             }
@@ -80,6 +85,7 @@ keys.addEventListener('click', e => {
     }
 });
 
+// Calculate function 
 function calculate(n1, op, n2) {
     let results = '';
 
@@ -94,4 +100,21 @@ function calculate(n1, op, n2) {
     }
 
     return results;
+}
+
+// To return equation with symbols
+function historicalData(n1, op, n2, result) {
+    let fullOp = '';
+
+    if (op === 'add') {
+        fullOp = (n1 + " + " + n2 + " = " + result);
+    } else if (op === 'subtract') {
+        fullOp = (n1 + " - " + n2 + " = " + result);
+    } else if (op === 'multiply') {
+        fullOp = (n1 + " x " + n2 + " = " + result);
+    } else if (op === 'divide') {
+        fullOp = (n1 + " ÷ " + n2 + " = " + result);
+    }
+
+    return fullOp;
 }
