@@ -21,8 +21,25 @@ const calculationsSchema = new mongoose.Schema({
 
 const Calculation = mongoose.model("Calculation", calculationsSchema);
 
+
+// Test database connection by manually inputting data 
+
 // const newCalc1 = new Calculation({
 //     name: "6 x 6 = 36"
+// });
+
+// const newCalc2 = new Calculation({
+//     name: "12 - 112 = -100"
+// });
+
+// const defaultItems = [newCalc1, newCalc2];
+
+// Calculation.insertMany(defaultItems, function(err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("input success");
+//     }
 // });
 
 app.get("/", (req, res) => {
@@ -37,7 +54,7 @@ app.post("/", (req, res) => {
 
     // when new calculation is complete - save to calcDB
     const newCalc = req.body.newCalc;
-    console.log(newCalc);
+    console.log("Post Route Worked!" + newCalc);
     const calculation = new Calculation({
         name: newCalc
     });

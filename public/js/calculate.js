@@ -69,17 +69,10 @@ keys.addEventListener('click', e => {
 
                 results = display.textContent = calculate(firstNum, operator, secondNum);
                 history.textContent = historicalData(firstNum, operator, secondNum, results);
-
-                var historyUpdate = history.textContent;
-                console.log(historyUpdate);
-                historyUpdate = document.getElementById('calcHist').value;
                 
 
                 calculator.dataset.lastKey = 'calculate';
             }
-
-
-
 
         }
     }

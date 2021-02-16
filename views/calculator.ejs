@@ -15,40 +15,53 @@
         <div class="calc-screen">0</div>
         <div class="calculator-keys">
 
+            <button type="button" class="operator" data-action="add">+</button>
+            <button type="button" class="operator" data-action="subtract">-</button>
+            <button type="button" class="operator" data-action="divide">&divide;</button>
+            <button type="button" class="operator" data-action="multiply">&times;</button>
+
             <button type="button" value="7">7</button>
             <button type="button" value="8">8</button>
             <button type="button" value="9">9</button>
-            <button type="button" class="operator" data-action="add">+</button><br>
-
 
             <button type="button" value="4">4</button>
             <button type="button" value="5">5</button>
             <button type="button" value="6">6</button>
-            <button type="button" class="operator" data-action="subtract">-</button><br>
+
 
             <button type="button" value="1">1</button>
             <button type="button" value="2">2</button>
             <button type="button" value="3">3</button>
-            <button type="button" class="operator" data-action="multiply">&times;</button><br>
 
             <button type="button" class="decimal" data-action="decimal">.</button>
-            <button type="button" value="0">0</button>
-            <button type="button" class="operator" data-action="divide">&divide;</button>
-            <button type="button" class="equal" data-action="calculate">=</button><br>
+            <button type="button" value="0" id="zero">0</button>
             <button type="button" class="all-clear" data-action="clear">clear</button>
 
+            <button type="button" class="equal" data-action="calculate">=</button>
 
-        </div>
-
-        <div class="historical-data">
-            <h2 class="history"></h2>
-            <form action="/" method="post">
-                <input id=="calcHist" type="hidden" name="newCalc" value="" onChange="this.form.submit()">
-            </form>
-
-            <h2><%= foundEquations[0].name %></h2>
         </div>
     </div>
+
+        <div class="historical-data">
+            <h1>Last 10 Calculations</h1>
+            <!-- <form action="/" method="post"></form>
+            <input class="history" id=="calcHist" name="newCalc" onChange="this.form.submit()"></input>
+            </form> -->
+
+            <!-- <% foundEquations.forEach(function(x) { %>
+                <h2><%= x.name %></h2>
+                <% }); %> -->
+            <h3 class="history"></h3>
+            <% for (var i = foundEquations.length - 1; i>=0; i--) { %>
+                <h3><%= foundEquations[i].name %></h3>
+            <% } %>
+            </div>
+        
+        <form class="history" action="/" method="post">
+            <input type="text" name="newCalc" autocomplete="off">
+            <button type="submit" name="list">+</button>
+        </form>
+    
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="js/calculate.js"></script>
 </body>
