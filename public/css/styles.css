@@ -88,9 +88,29 @@ button:hover{
     background-color: #12c488;
 }
 
-/* Animations */
+.historical-data {
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  border: solid 1px black;
+  border-radius: 20px;
+  width: 50%;
+}
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+#deleteAll {
+  border: solid #12c488;
+  background-color: #ff7a00;
+  color:white;
+  border-radius: 5px;
+}
+
+#deleteAll:hover {
+  border: dashed #ff7a00;
+  background-color: #12c488;
+}
+
+#gitHubRepo {
+  text-decoration: none;
+  color: #ff5a69;
 }
