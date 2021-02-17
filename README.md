@@ -3,13 +3,16 @@
 
 _A Calculator App developed for Sezzle_
 
-[Launch Heroku App Here]()
+[Launch Heroku App Here](https://aqueous-meadow-04511.herokuapp.com/)
 
 
 
 **Description of Project**
 
-Creating front end calculator script and then connecting it via Mongoose to MongoDB to display history of calculator use - using event delegation in there as well.
+A basic calculator application that stores all calculations in a MongoDB database via Mongoose.js - created for Sezzle. 
+
+
+![calculator screenshot]()
 
 
 **Launching the App Locally**
@@ -20,6 +23,8 @@ _Pre-requisites : Must have Node.js and npm installed_
 
 2. From project folder terminal - _npm install_
 
-3. From project folder terminal - _nodemon app.js_
+3. Create .env file and include API_PASS= {Your MongoDB Password}
 
-4. Go to browser - _localhost:3000_
+4. From project folder terminal - _nodemon app.js_
+
+5. Go to browser - _localhost:3000_
