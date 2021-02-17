@@ -11,8 +11,21 @@ _A Calculator App developed for Sezzle_
 
 A basic calculator application that stores all calculations in a MongoDB database via Mongoose.js - created for Sezzle. 
 
+![calculator screenshot](https://github.com/mmeadx/sezCalc/blob/main/screenshots/calcScreenShot.png)
 
-![calculator screenshot]()
+
+------------------
+
+_MongoDB Database to store calculations_
+![MongoDB Database](https://github.com/mmeadx/sezCalc/blob/main/screenshots/MongoDB.png)
+
+
+_The code used to grab the most recent 10 calculations_
+![Last 10 Code](https://github.com/mmeadx/sezCalc/blob/main/screenshots/tenPrevious.png)
+
+
+_How it appears in the app_
+![Last 10 Calculations](https://github.com/mmeadx/sezCalc/blob/main/screenshots/LastTen.png)
 
 
 **Launching the App Locally**
