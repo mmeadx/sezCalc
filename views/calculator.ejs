@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <h1 id="headline">Sezzle Calculator</h1>
     <div class="calculator">
 
         <div class="calc-screen">0</div>
@@ -52,9 +53,13 @@
 
                 <h3><%= x.name %></h3>
 
-                <% }); %>
+            <% }); %>
            
-            </div>
+        </div>
+
+        <form class="item" action="/delete" method="post">
+            <button type="submit" name="list">delete all</button>
+        </form>
         
     <script src="js/calculate.js"></script>
 </body>

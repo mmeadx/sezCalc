@@ -47,6 +47,17 @@ app.post("/", (req, res) => {
 })
 
 
+app.post("/delete", (req, res) => {
+    Calculation.deleteMany({}, function(err) {
+        if(!err){
+            console.log("deleted all");
+            res.redirect("/");
+        } else {
+            console.log(err);
+        }
+    });
+});
+
 let port = process.env.PORT;
 if (port == null || port == "") {
     port = 3000;

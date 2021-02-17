@@ -1,12 +1,11 @@
 
-button {
-  border: 0;
-  background-color: white;
-  font-size: inherit;
-  font-family:'Courier New', Courier, monospace;
-  font-weight: lighter;
-  outline: none;
-  text-align: center;
+#headline {
+  margin-bottom: 5px;
+}
+
+#headline:hover{
+  color:#12c488;
+  cursor: default;
 }
 
 h1,
@@ -31,7 +30,7 @@ body {
   box-shadow: 0 0 100px 0px #5252527c;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
+  margin-top: 0px;
   max-width: 15em;
   overflow: hidden;
 }
@@ -45,6 +44,16 @@ body {
   text-align: right;
 }
 
+button {
+  border: 0;
+  background-color: white;
+  font-size: inherit;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: lighter;
+  outline: none;
+  text-align: center;
+}
+
 .calculator-keys {
   background-color: rgb(0, 0, 0);
   display: grid;
@@ -56,24 +65,32 @@ body {
 }
 
 button:hover{
-    background-color: black;
+    background-color: #ff5a69;
     color: white;
+    cursor:pointer;
 }
 
 .operator {
-  background-color: #eb971b;
+  background-color: #ff7a00;
 }
 
 .operator:hover {
-    background-color: #258dca;
+    background-color: #a144d0;
 }
 
 .equal {
-  background-color: #eb971b;
+  background-color: #ff7a00;
   grid-column: -2;
   grid-row: 2 / span 4;
 }
 
 .equal:hover {
-    background-color: #32811e;
+    background-color: #12c488;
+}
+
+/* Animations */
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
