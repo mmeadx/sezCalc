@@ -1,5 +1,6 @@
 require('dotenv').config(); // to mask MongoDB pw
 
+// npm modules
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
+// connecting to MongoDB via Mongoose
 mongoose.connect("mongodb+srv://admin-mattmead:" + process.env.API_PASS + "@cluster0.tg1ue.mongodb.net/calcDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const calculationsSchema = new mongoose.Schema({
@@ -20,27 +22,6 @@ const calculationsSchema = new mongoose.Schema({
 });
 
 const Calculation = mongoose.model("Calculation", calculationsSchema);
-
-
-// Test database connection by manually inputting data 
-
-// const newCalc1 = new Calculation({
-//     name: "6 x 6 = 36"
-// });
-
-// const newCalc2 = new Calculation({
-//     name: "12 - 112 = -100"
-// });
-
-// const defaultItems = [newCalc1, newCalc2];
-
-// Calculation.insertMany(defaultItems, function(err) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("input success");
-//     }
-// });
 
 app.get("/", (req, res) => {
 
@@ -61,8 +42,8 @@ app.post("/", (req, res) => {
         name: newCalc
     });
 
-    calculation.save();
-    res.redirect("/");
+    calculation.save(); // Save calculation to calcDB
+    res.redirect("/"); // Reload page
 })
 
 app.listen(3000, function () {

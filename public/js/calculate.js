@@ -1,59 +1,55 @@
-console.log("Calculate.js connected");
+console.log("Calculate.js connected"); // Check for Connection
 
 // Event delegation - https://javascript.info/event-delegation
 
-const calculator = document.querySelector('.calculator');
-const keys = calculator.querySelector('.calculator-keys');
-
-const display = document.querySelector('.calc-screen'); // Set calc-screen to display pressed values
-const history = document.querySelector('.history');
+// Grab parts of page
+const calculator = document.querySelector('.calculator');  // Full Calculator
+const keys = calculator.querySelector('.calculator-keys'); // Calculator Keys
+const display = document.querySelector('.calc-screen'); // Calculator Screen
+const history = document.querySelector('.history'); // History of calculations
 
 keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
 
-        // Define Key Click -- determine if number or operator
+        // Define Key Click -- 
         const key = e.target; // find non-specific button
         const action = key.dataset.action; // if key is actionable
         const keyValue = key.textContent; // determine value of key press
         const screenDisplay = display.textContent; // numbers in calculator display
-        const lastKey = calculator.dataset.lastKey;
-
-        // Array.from(key.parentNode.children).forEach(y => y.classList.remove('is-depressed'))
+        const lastKey = calculator.dataset.lastKey; // last key pressed -- type
 
         if (!action) { // if not an operator key
-            if (screenDisplay === '0' || lastKey === 'operator' || lastKey === 'calculate') { // if 0 or an operator
-                display.textContent = keyValue; // set display value as key pressed
-                calculator.dataset.lastKey = 'integer';
+            if (screenDisplay === '0' || lastKey === 'operator' || lastKey === 'calculate') { // if 0 or an operator or calculate
+                display.textContent = keyValue; 
+                calculator.dataset.lastKey = 'integer'; // set as int
             } else { // if not 0
-                display.textContent = screenDisplay + keyValue;
+                display.textContent = screenDisplay + keyValue; // add to string
             }
         }
-
         else if ( // if an operator key
             action === 'add' ||
             action === 'subtract' ||
             action === 'multiply' ||
             action === 'divide'
         ) {
-            // key.classList.add('is-depressed'); // adds 'is-depressed' class
             const firstNum = calculator.dataset.firstNum = screenDisplay; // grab first input number
             const operator = calculator.dataset.operator = action; // grab operator value
-            const secondNum = screenDisplay;
+            const secondNum = screenDisplay; // second number 
 
             calculator.dataset.lastKey = 'operator'; // defines 'lastKey' as operator
             
         }
 
         else if (action === 'decimal') { // decimal factor - add decimal
-            if (!screenDisplay.includes('.')) {
+            if (!screenDisplay.includes('.')) { // prevents more than one decimal
                 display.textContent = screenDisplay + ".";
             }
-            calculator.dataset.lastKey = 'decimal';
+            calculator.dataset.lastKey = 'decimal'; // set last key as decimal
         }
 
         else if (action === 'clear') { // if clear key is pressed
             display.textContent = '0';
-            calculator.dataset.lastKey = 'clear';
+            calculator.dataset.lastKey = 'clear'; // set last key as clear
         }
 
         else if (action === 'calculate') { // if = sign is pressed
@@ -61,13 +57,13 @@ keys.addEventListener('click', e => {
             if (screenDisplay !== '0') {
                 const firstNum = calculator.dataset.firstNum;
                 const operator = calculator.dataset.operator;
-                const secondNum = screenDisplay; // grab second number input
+                const secondNum = screenDisplay; 
 
-                console.log(firstNum); // Display values in Console
-                console.log(secondNum); // Display values in Console
-                console.log(operator); // Display values in Console
+                // console.log(firstNum); // Display values in Console
+                // console.log(secondNum); // Display values in Console
+                // console.log(operator); // Display values in Console
 
-                results = display.textContent = calculate(firstNum, operator, secondNum);
+                results = display.textContent = calculate(firstNum, operator, secondNum); // calculates and displays results
                 document.getElementById("calcHist").value = historicalData(firstNum, operator, secondNum, results);
                 document.getElementById("calcForm").submit();
 
