@@ -44,7 +44,9 @@ const Calculation = mongoose.model("Calculation", calculationsSchema);
 
 app.get("/", (req, res) => {
 
-    Calculation.find({}, function (err, foundCalc) {
+    // Get's most recent 10 equations
+    var query = Calculation.find({}).limit(10).sort({_id: -1});
+    query.exec(function (err, foundCalc) {
         res.render("calculator", {foundEquations: foundCalc});
     });
     
@@ -54,7 +56,7 @@ app.post("/", (req, res) => {
 
     // when new calculation is complete - save to calcDB
     const newCalc = req.body.newCalc;
-    console.log("Post Route Worked!" + newCalc);
+    console.log(req.body);
     const calculation = new Calculation({
         name: newCalc
     });

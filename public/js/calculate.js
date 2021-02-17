@@ -68,8 +68,8 @@ keys.addEventListener('click', e => {
                 console.log(operator); // Display values in Console
 
                 results = display.textContent = calculate(firstNum, operator, secondNum);
-                history.textContent = historicalData(firstNum, operator, secondNum, results);
-                
+                document.getElementById("calcHist").value = historicalData(firstNum, operator, secondNum, results);
+                document.getElementById("calcForm").submit();
 
                 calculator.dataset.lastKey = 'calculate';
             }
