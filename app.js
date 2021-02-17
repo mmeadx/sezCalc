@@ -46,6 +46,12 @@ app.post("/", (req, res) => {
     res.redirect("/"); // Reload page
 })
 
-app.listen(3000, function () {
-    console.log("Running on port 3000");
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+
+app.listen(port, function () {
+    console.log("Service Started");
 });
